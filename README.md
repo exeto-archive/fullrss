@@ -10,15 +10,13 @@ $ npm install --save fullrss
 
 ## Usage
 
-Works in `iojs` and `node --harmony`.
-
 ```js
 const fullrss = require('fullrss');
 
 fullrss({
   feed: 'http://domain.com/feed',
-  elements: '.post-img && .post',
-  dropElements: '.counter && .ad',
+  elements: '.post-img, .post',
+  dropElements: '.counter, .ad',
   max: 5,
   token: 'readability token'
 })
@@ -44,14 +42,14 @@ Address feed
 Type: `string`  
 Default: `false`
 
-The choice of the elements of the article. If you do not specify, the receipt of the full text will be made via Readability. Multiple selection using `&&`. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
+The choice of the elements of the article. If you do not specify, the receipt of the full text will be made via Readability. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
 
 ##### dropElements
 
 Type: `string`  
 Default: `false`
 
-To exclude the elements. Multiple selection using `&&`. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
+To exclude the elements. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
 
 ##### max
 
