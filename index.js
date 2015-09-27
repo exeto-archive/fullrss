@@ -7,6 +7,7 @@ const generateFeed = require('./lib/generate-feed');
 module.exports = function(args) {
   return co(function*() {
     let result = yield feedParse(args.feed, args.max);
-    return yield generateFeed(result, args.elements, args.dropElements, args.token);
+    return yield generateFeed(result, args.elements, args.dropElements,
+                              args.token, args.pureHtml);
   });
 };

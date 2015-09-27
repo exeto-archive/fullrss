@@ -65,6 +65,13 @@ Default: `false`
 
 Token to obtain the full text via Readability.
 
+##### pureHtml
+
+Type: `boolean`  
+Default: `false`
+
+Cleaning of unnecessary tags and attributes.
+
 ## License
 
 [MIT](LICENSE.md) © [Timofey Dergachev](http://exeto.me/)
