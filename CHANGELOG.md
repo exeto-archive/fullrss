@@ -1,4 +1,11 @@
 
+0.3.0 / 2015-09-28
+==================
+
+ * Changed the output from innerHTML to outerHTML
+ * Added the option `pureHtml`. Now by default `false`
+ * Replaced request on got
+
 0.2.0 / 2015-09-26
 ==================
 
