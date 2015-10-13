@@ -1,4 +1,4 @@
-# fullrss
+# fullrss [![Dependency Status][depstat-image]][depstat-url]
 
 Generator full rss feed.
 
@@ -75,3 +75,6 @@ Cleaning of unnecessary tags and attributes.
 ## License
 
 [MIT](LICENSE.md) © [Timofey Dergachev](http://exeto.me/)
+
+[depstat-url]: https://gemnasium.com/exeto/fullrss
+[depstat-image]: https://img.shields.io/gemnasium/exeto/fullrss.svg?style=flat
