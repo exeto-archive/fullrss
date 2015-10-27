@@ -42,7 +42,7 @@ Address feed
 Type: `string`  
 Default: `false`
 
-The choice of the elements of the article. If you do not specify, the receipt of the full text will be made via Readability. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
+The choice of the elements of the article. If you do not specify, the receipt of the full text will be made via Readability. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio). If you specify the token and the item is not found, it will use readability to get the full text.
 
 ##### dropElements
 
