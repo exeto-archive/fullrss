@@ -1,4 +1,12 @@
 
+0.4.0 / 2015-11-07
+==================
+
+ * Refactoring of function arguments
+ * Added readability when not finding element
+ * Added the request headers
+ * Updated .eslintrc and refactoring code
+
 0.3.0 / 2015-09-28
 ==================
 
