@@ -1,14 +1,13 @@
 {
+  "extends": "airbnb/base",
+  "parser": "babel-eslint",
   "ecmaFeatures": {
     "modules": false
   },
   "rules": {
     "strict": [2, "global"],
     "no-console": 0,
-    "no-multi-spaces": [2, { "exceptions": { "VariableDeclarator": true } }],
     "func-names": 0,
-    "space-before-function-paren": [2, { "anonymous": "always", "named": "never" }],
-    "id-length": 0
-  },
-  "extends": "airbnb/base"
+    "no-multi-spaces": [2, { "exceptions": { "VariableDeclarator": true } }]
+  }
 }
