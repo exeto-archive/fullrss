@@ -1,4 +1,5 @@
-# fullrss [![Dependency Status][depstat-image]][depstat-url]
+# fullrss
+[![NPM Version][version-image]][version-url] [![Build Status][buildstat-image]][buildstat-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependency Status][depstat-image]][depstat-url]
 
 Generator full rss feed.
 
@@ -76,5 +77,11 @@ Cleaning of unnecessary tags and attributes.
 
 [MIT](LICENSE.md) © [Timofey Dergachev](http://exeto.me/)
 
+[version-url]: https://www.npmjs.com/package/fullrss
+[version-image]: https://img.shields.io/npm/v/fullrss.svg?style=flat-square
+[buildstat-url]: https://travis-ci.org/exeto/fullrss?branch=master
+[buildstat-image]: https://img.shields.io/travis/exeto/fullrss/master.svg?style=flat-square
+[coverage-url]: https://coveralls.io/github/exeto/fullrss?branch=master
+[coverage-image]: https://img.shields.io/coveralls/exeto/fullrss/master.svg?style=flat-square
 [depstat-url]: https://gemnasium.com/exeto/fullrss
-[depstat-image]: https://img.shields.io/gemnasium/exeto/fullrss.svg?style=flat
+[depstat-image]: https://img.shields.io/gemnasium/exeto/fullrss.svg?style=flat-square
