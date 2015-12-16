@@ -1,4 +1,11 @@
 
+0.4.2 / 2015-12-16
+==================
+
+ * Add tests
+ * Replace by let to const in a loop
+ * Remove unused code
+
 0.4.1 / 2015-11-07
 ==================
 
