@@ -1,0 +1,8 @@
+{
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "rules": {
+    "strict": 2,
+  }
+}

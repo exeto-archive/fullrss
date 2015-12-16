@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title><![CDATA[fullrss]]></title>
+    <description><![CDATA[fullrss]]></description>
+    <link>http://localhost:3000</link>
+    <generator>RSS for Node</generator>
+    
+    <pubDate>Sun, 13 Dec 2015 08:50:49 GMT</pubDate>
+    <language><![CDATA[en]]></language>
+    <item>
+      <title><![CDATA[Ius et delenit tincidunt expetendis, utamur deterruisset nam te est.]]></title>
+      <description><![CDATA[[[ There is no such elements: .missing ]]]]></description>
+      <link>http://localhost:3000/post/1.html</link>
+      <guid isPermaLink="true">http://localhost:3000/post/1.html</guid>
+      <dc:creator><![CDATA[John Smith]]></dc:creator>
+      <pubDate>Sun, 13 Dec 2015 08:50:49 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Ut sit illud putant delectus. Consul semper nam ea, his.]]></title>
+      <description><![CDATA[[[ There is no such elements: .missing ]]]]></description>
+      <link>http://localhost:3000/post/2.html</link>
+      <guid isPermaLink="true">http://localhost:3000/post/2.html</guid>
+      <dc:creator><![CDATA[John Smith]]></dc:creator>
+      <pubDate>Sun, 13 Dec 2015 06:35:12 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[In per sonet quaerendum, ubique tacimates et vel. Consequat cotidieque.]]></title>
+      <description><![CDATA[[[ There is no such elements: .missing ]]]]></description>
+      <link>http://localhost:3000/post/3.html</link>
+      <guid isPermaLink="true">http://localhost:3000/post/3.html</guid>
+      <dc:creator><![CDATA[John Smith]]></dc:creator>
+      <pubDate>Sat, 12 Dec 2015 12:34:20 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

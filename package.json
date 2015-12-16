@@ -6,12 +6,16 @@
   "repository": "exeto/fullrss",
   "main": "index.js",
   "engines": {
-    "node": "^4.0.0"
+    "node": ">= 4"
   },
   "author": {
     "name": "Timofey Dergachev",
     "email": "t@exeto.me",
     "url": "exeto.me"
+  },
+  "scripts": {
+    "test": "eslint . && nyc ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
     "rss",
@@ -29,8 +33,12 @@
     "sanitize-html": "^1.11.2"
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0-beta4",
+    "ava": "^0.8.0",
+    "babel-eslint": "^4.1.6",
+    "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0"
+    "eslint-config-airbnb": "^2.0.0",
+    "nyc": "^5.0.1",
+    "pify": "^2.3.0"
   }
 }
