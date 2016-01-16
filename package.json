@@ -27,17 +27,17 @@
     "co": "^4.6.0",
     "entities": "^1.1.1",
     "feedparser": "^1.1.4",
-    "got": "^5.2.0",
+    "got": "^6.1.0",
     "iconv-lite": "^0.4.13",
     "rss": "^1.2.1",
     "sanitize-html": "^1.11.2"
   },
   "devDependencies": {
-    "ava": "^0.8.0",
+    "ava": "^0.10.0",
     "babel-eslint": "^4.1.6",
     "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0",
+    "eslint-config-airbnb": "^3.1.0",
     "nyc": "^5.0.1",
     "pify": "^2.3.0"
   }
