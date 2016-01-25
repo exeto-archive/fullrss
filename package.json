@@ -33,7 +33,7 @@
     "sanitize-html": "^1.11.2"
   },
   "devDependencies": {
-    "ava": "^0.10.0",
+    "ava": "^0.11.0",
     "babel-eslint": "^4.1.6",
     "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
