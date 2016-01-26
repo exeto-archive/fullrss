@@ -7,8 +7,8 @@ const http = require('http');
 const pify = require('pify');
 
 module.exports = function () {
-  const s = http.createServer(function (req, res) {
-    fs.readFile(`fixtures${req.url}`, function (err, data) {
+  const s = http.createServer((req, res) => {
+    fs.readFile(`fixtures${req.url}`, (err, data) => {
       if (err) {
         res.writeHead(404);
         res.end(JSON.stringify(err));
