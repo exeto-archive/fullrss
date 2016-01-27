@@ -1,6 +1,6 @@
 {
   "name": "fullrss",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Generator full rss feed",
   "license": "MIT",
   "repository": "exeto/fullrss",
