@@ -1,12 +1,9 @@
 'use strict';
 
-const co           = require('co');
-const feedParse    = require('./lib/feed-parse');
-const generateFeed = require('./lib/generate-feed');
+const feedParse    = require('./lib/feedParse');
+const generateFeed = require('./lib/generateFeed');
 
-module.exports = function (args) {
-  return co(function* () {
-    const result = yield feedParse(args);
-    return yield generateFeed(result, args);
-  });
+module.exports = function fullrss(args) {
+  return feedParse(args)
+    .then(result => generateFeed(result, args));
 };
