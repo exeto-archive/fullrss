@@ -1,11 +1,7 @@
 {
   "extends": "airbnb/base",
   "parser": "babel-eslint",
-  "ecmaFeatures": {
-    "modules": false
-  },
   "rules": {
-    "strict": [2, "global"],
     "no-console": 0,
     "no-param-reassign": 0,
     "no-multi-spaces": [2, { "exceptions": { "VariableDeclarator": true } }],
