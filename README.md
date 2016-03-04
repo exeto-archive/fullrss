@@ -83,5 +83,5 @@ Cleaning of unnecessary tags and attributes.
 [buildstat-image]: https://img.shields.io/travis/exeto/fullrss/master.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/exeto/fullrss?branch=master
 [coverage-image]: https://img.shields.io/coveralls/exeto/fullrss/master.svg?style=flat-square
-[depstat-url]: https://gemnasium.com/exeto/fullrss
-[depstat-image]: https://img.shields.io/gemnasium/exeto/fullrss.svg?style=flat-square
+[depstat-url]: https://david-dm.org/exeto/fullrss#info=Dependencies
+[depstat-image]: https://img.shields.io/david/exeto/fullrss.svg?style=flat-square
