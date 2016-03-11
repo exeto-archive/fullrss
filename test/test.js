@@ -1,6 +1,7 @@
 import fs from 'fs';
 import test from 'ava';
 import pify from 'pify';
+import nock from 'nock';
 import fullrss from '../';
 import createServer from './_server';
 
@@ -8,6 +9,12 @@ const readFile = pify(fs.readFile);
 let s;
 
 test.before('setup', async () => {
+  nock('https://www.readability.com')
+    .filteringPath(/url=[^&]*/g, '')
+    .get('/api/content/v1/parser?token=token&')
+    .times(6)
+    .reply(200, { content: 'readability' });
+
   s = await createServer();
   await s.listen(s.port);
 });
@@ -108,6 +115,29 @@ test('encoding windws-1251', async t => {
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
   t.is(feed, await readFile('fixtures/afterFeedWindows1251.xml', 'utf-8'));
+});
+
+test('readability', async t => {
+  let feed = await fullrss({
+    feed: `${s.url}/beforeFeed.xml`,
+    token: 'token',
+  });
+
+  feed = feed.replace(/<lastBuildDate>.*/, '');
+
+  t.is(feed, await readFile('fixtures/afterFeedReadability.xml', 'utf-8'));
+});
+
+test('use a readability absent elements', async t => {
+  let feed = await fullrss({
+    feed: `${s.url}/beforeFeed.xml`,
+    elements: '.missing',
+    token: 'token',
+  });
+
+  feed = feed.replace(/<lastBuildDate>.*/, '');
+
+  t.is(feed, await readFile('fixtures/afterFeedReadability.xml', 'utf-8'));
 });
 
 test.after('cleanup', async () => {
