@@ -2,7 +2,7 @@
 
 'use strict';
 
-const fs   = require('fs');
+const fs = require('fs');
 const http = require('http');
 const pify = require('pify');
 

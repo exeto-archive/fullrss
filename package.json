@@ -14,7 +14,8 @@
     "url": "exeto.me"
   },
   "scripts": {
-    "test": "eslint . && nyc ava",
+    "test": "npm run lint && nyc ava",
+    "lint": "eslint .",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
@@ -34,10 +35,10 @@
   },
   "devDependencies": {
     "ava": "^0.13.0",
-    "babel-eslint": "^6.0.0-beta.6",
+    "babel-eslint": "^6.0.0",
     "coveralls": "^2.11.6",
     "eslint": "^2.4.0",
-    "eslint-config-exeto": "~6.1.0",
+    "eslint-config-exeto": "~6.2.0",
     "nock": "^7.2.2",
     "nyc": "^6.0.0",
     "pify": "^2.3.0"
