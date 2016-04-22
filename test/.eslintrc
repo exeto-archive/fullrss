@@ -1,8 +1,8 @@
 {
-  "ecmaFeatures": {
-    "modules": true
+  "parserOptions": {
+    "sourceType": "module"
   },
   "rules": {
-    "strict": 2,
+    "strict": [2, "never"]
   }
 }
