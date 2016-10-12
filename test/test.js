@@ -19,7 +19,7 @@ test.before('setup', async () => {
   await s.listen(s.port);
 });
 
-test('equal feed', async t => {
+test('equal feed', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
     elements: '.test2, .test',
@@ -31,7 +31,7 @@ test('equal feed', async t => {
   t.is(feed, await readFile('fixtures/afterFeed.xml', 'utf-8'));
 });
 
-test('missing elements', async t => {
+test('missing elements', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
     elements: '.missing',
@@ -42,7 +42,7 @@ test('missing elements', async t => {
   t.is(feed, await readFile('fixtures/afterFeedMissing.xml', 'utf-8'));
 });
 
-test('missing token', async t => {
+test('missing token', async (t) => {
   try {
     await fullrss({
       feed: `${s.url}/beforeFeed.xml`,
@@ -54,7 +54,7 @@ test('missing token', async t => {
   }
 });
 
-test('error 404', async t => {
+test('error 404', async (t) => {
   try {
     await fullrss({
       feed: `${s.url}/404`,
@@ -67,7 +67,7 @@ test('error 404', async t => {
   }
 });
 
-test('not a feed', async t => {
+test('not a feed', async (t) => {
   try {
     await fullrss({
       feed: `${s.url}/post/1.html`,
@@ -80,7 +80,7 @@ test('not a feed', async t => {
   }
 });
 
-test('max items', async t => {
+test('max items', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
     elements: '.test2, .test',
@@ -93,7 +93,7 @@ test('max items', async t => {
   t.is(feed, await readFile('fixtures/afterFeedMax.xml', 'utf-8'));
 });
 
-test('pure html', async t => {
+test('pure html', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
     elements: '.test2, .test',
@@ -106,7 +106,7 @@ test('pure html', async t => {
   t.is(feed, await readFile('fixtures/afterFeedPure.xml', 'utf-8'));
 });
 
-test('encoding windws-1251', async t => {
+test('encoding windws-1251', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeedWindows1251.xml`,
     elements: 'p',
@@ -117,7 +117,7 @@ test('encoding windws-1251', async t => {
   t.is(feed, await readFile('fixtures/afterFeedWindows1251.xml', 'utf-8'));
 });
 
-test('readability', async t => {
+test('readability', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
     token: 'token',
@@ -128,7 +128,7 @@ test('readability', async t => {
   t.is(feed, await readFile('fixtures/afterFeedReadability.xml', 'utf-8'));
 });
 
-test('use a readability absent elements', async t => {
+test('use a readability absent elements', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
     elements: '.missing',

@@ -1,9 +1,3 @@
 {
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module"
-  },
-  "rules": {
-    "strict": [2, "never"]
-  }
+  "extends": "exeto-base"
 }
