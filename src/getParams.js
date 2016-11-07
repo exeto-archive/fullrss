@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = function getParams(str) {
+export default function getParams(str) {
   if (!str) { return {}; }
 
   const result = str.split(';').reduce((params, param) => {
@@ -14,4 +12,4 @@ module.exports = function getParams(str) {
   }, {});
 
   return result;
-};
+}

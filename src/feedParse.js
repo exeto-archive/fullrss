@@ -1,12 +1,10 @@
-'use strict';
+import got from 'got';
+import FeedParser from 'feedparser';
+import iconv from 'iconv-lite';
 
-const got = require('got');
-const FeedParser = require('feedparser');
-const iconv = require('iconv-lite');
+import getParams from './getParams';
 
-const getParams = require('./getParams');
-
-module.exports = function feedParse(args) {
+export default function feedParse(args) {
   return new Promise((resolve, reject) => {
     let count = 0;
     const max = args.max || 10;
@@ -56,4 +54,4 @@ module.exports = function feedParse(args) {
         resolve(result);
       });
   });
-};
+}

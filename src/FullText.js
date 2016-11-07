@@ -1,16 +1,14 @@
-'use strict';
+import url from 'url';
+import co from 'co';
+import cheerio from 'cheerio';
+import iconv from 'iconv-lite';
+import got from 'got';
+import entities from 'entities';
 
-const url = require('url');
-const co = require('co');
-const cheerio = require('cheerio');
-const iconv = require('iconv-lite');
-const got = require('got');
-const entities = require('entities');
+import cleanHtml from './cleanHtml';
+import getParams from './getParams';
 
-const cleanHtml = require('./cleanHtml');
-const getParams = require('./getParams');
-
-module.exports = class FullText {
+export default class FullText {
   constructor(args) {
     this.args = args;
   }
@@ -110,10 +108,10 @@ module.exports = class FullText {
       text = text || `[[ There is no such elements: ${self.args.elements} ]]`;
 
       if (self.args.pureHtml) {
-        return yield cleanHtml(text);
+        return cleanHtml(text);
       }
 
       return text;
     });
   }
-};
+}

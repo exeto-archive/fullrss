@@ -2,7 +2,7 @@ import fs from 'fs';
 import test from 'ava';
 import pify from 'pify';
 import nock from 'nock';
-import fullrss from '../';
+import fullrss from '../src';
 import createServer from './_server';
 
 const readFile = pify(fs.readFile);

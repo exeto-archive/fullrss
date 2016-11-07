@@ -1,9 +1,7 @@
-'use strict';
+import feedParse from './feedParse';
+import generateFeed from './generateFeed';
 
-const feedParse = require('./feedParse');
-const generateFeed = require('./generateFeed');
-
-module.exports = function fullrss(args) {
+export default function fullrss(args) {
   return feedParse(args)
     .then(result => generateFeed(result, args));
-};
+}

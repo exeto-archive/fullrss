@@ -1,11 +1,9 @@
-'use strict';
+import co from 'co';
+import RSS from 'rss';
 
-const co = require('co');
-const RSS = require('rss');
+import FullText from './FullText';
 
-const FullText = require('./FullText');
-
-module.exports = function generateFeed(parsedFeed, args) {
+export default function generateFeed(parsedFeed, args) {
   const fullText = new FullText(args);
   const feed = new RSS({
     title: parsedFeed.meta.title,
@@ -37,4 +35,4 @@ module.exports = function generateFeed(parsedFeed, args) {
 
     return feed.xml({ indent: '  ' });
   });
-};
+}
