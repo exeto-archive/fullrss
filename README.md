@@ -19,7 +19,7 @@ fullrss({
   elements: '.post-img, .post',
   dropElements: '.counter, .ad',
   max: 5,
-  token: 'readability token'
+  mercuryToken: 'token'
 })
   .then(console.log)
   .catch(console.error);
@@ -41,14 +41,12 @@ Address feed
 ##### elements
 
 Type: `string`  
-Default: `false`
 
-The choice of the elements of the article. If you do not specify, the receipt of the full text will be made via Readability. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio). If you specify the token and the item is not found, it will use readability to get the full text.
+The choice of the elements of the article. If you do not specify, the receipt of the full text will be made via [Mercury](https://mercury.postlight.com/web-parser/). Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio). If you specify the token and the item is not found, it will use Mercury to get the full text.
 
 ##### dropElements
 
 Type: `string`  
-Default: `false`
 
 To exclude the elements. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
 
@@ -59,12 +57,11 @@ Default: `10`
 
 The maximum number of feed items.
 
-##### token
+##### mercuryToken
 
 Type: `string`  
-Default: `false`
 
-Token to obtain the full text via Readability.
+Token to obtain the full text via [Mercury](https://mercury.postlight.com/web-parser/).
 
 ##### pureHtml
 

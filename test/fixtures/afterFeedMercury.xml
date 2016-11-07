@@ -9,7 +9,7 @@
     <language><![CDATA[en]]></language>
     <item>
       <title><![CDATA[Ius et delenit tincidunt expetendis, utamur deterruisset nam te est.]]></title>
-      <description><![CDATA[readability]]></description>
+      <description><![CDATA[content]]></description>
       <link>http://localhost:3000/post/1.html</link>
       <guid isPermaLink="true">http://localhost:3000/post/1.html</guid>
       <dc:creator><![CDATA[John Smith]]></dc:creator>
@@ -17,7 +17,7 @@
     </item>
     <item>
       <title><![CDATA[Ut sit illud putant delectus. Consul semper nam ea, his.]]></title>
-      <description><![CDATA[readability]]></description>
+      <description><![CDATA[content]]></description>
       <link>http://localhost:3000/post/2.html</link>
       <guid isPermaLink="true">http://localhost:3000/post/2.html</guid>
       <dc:creator><![CDATA[John Smith]]></dc:creator>
@@ -25,7 +25,7 @@
     </item>
     <item>
       <title><![CDATA[In per sonet quaerendum, ubique tacimates et vel. Consequat cotidieque.]]></title>
-      <description><![CDATA[readability]]></description>
+      <description><![CDATA[content]]></description>
       <link>http://localhost:3000/post/3.html</link>
       <guid isPermaLink="true">http://localhost:3000/post/3.html</guid>
       <dc:creator><![CDATA[John Smith]]></dc:creator>

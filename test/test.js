@@ -9,11 +9,11 @@ const readFile = pify(fs.readFile);
 let s;
 
 test.before('setup', async () => {
-  nock('https://www.readability.com')
-    .filteringPath(/url=[^&]*/g, '')
-    .get('/api/content/v1/parser?token=token&')
+  nock('https://mercury.postlight.com')
+    .filteringPath(/\?url=[^&]*/g, '')
+    .get('/parser')
     .times(6)
-    .reply(200, { content: 'readability' });
+    .reply(200, { content: 'content' });
 
   s = await createServer();
   await s.listen(s.port);
@@ -50,7 +50,7 @@ test('missing token', async (t) => {
 
     t.fail('Exception was not thrown');
   } catch (err) {
-    t.is(err.message, 'Missing token Readability');
+    t.is(err.message, 'Missing Mercury token');
   }
 });
 
@@ -117,27 +117,27 @@ test('encoding windws-1251', async (t) => {
   t.is(feed, await readFile('fixtures/afterFeedWindows1251.xml', 'utf-8'));
 });
 
-test('readability', async (t) => {
+test('mercury', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
-    token: 'token',
+    mercuryToken: 'token',
   });
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  t.is(feed, await readFile('fixtures/afterFeedReadability.xml', 'utf-8'));
+  t.is(feed, await readFile('fixtures/afterFeedMercury.xml', 'utf-8'));
 });
 
-test('use a readability absent elements', async (t) => {
+test('use a mercury absent elements', async (t) => {
   let feed = await fullrss({
     feed: `${s.url}/beforeFeed.xml`,
     elements: '.missing',
-    token: 'token',
+    mercuryToken: 'token',
   });
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  t.is(feed, await readFile('fixtures/afterFeedReadability.xml', 'utf-8'));
+  t.is(feed, await readFile('fixtures/afterFeedMercury.xml', 'utf-8'));
 });
 
 test.after('cleanup', async () => {
