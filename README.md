@@ -72,7 +72,7 @@ Cleaning of unnecessary tags and attributes.
 
 ## License
 
-[MIT](LICENSE.md) © [Timofey Dergachev](http://exeto.me/)
+[MIT](LICENSE.md) © [Timofey Dergachev](https://exeto.me/)
 
 [version-url]: https://www.npmjs.com/package/fullrss
 [version-image]: https://img.shields.io/npm/v/fullrss.svg?style=flat-square

@@ -2,22 +2,21 @@
   "name": "fullrss",
   "version": "0.5.0",
   "description": "Generator full rss feed",
-  "license": "MIT",
+  "main": "lib/index.js",
   "repository": "exeto/fullrss",
-  "main": "index.js",
-  "engines": {
-    "node": ">= 4"
-  },
-  "author": {
-    "name": "Timofey Dergachev",
-    "email": "t@exeto.me",
-    "url": "exeto.me"
-  },
+  "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
+  "license": "MIT",
   "scripts": {
-    "test": "npm run lint && nyc ava",
-    "lint": "eslint .",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "test": "npm run lint && nyc ava --require babel-register",
+    "lint": "eslint src test",
+    "clean": "rm -rf lib",
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm run clean && npm run test && npm run build"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "keywords": [
     "rss",
     "full rss",
@@ -35,6 +34,8 @@
   },
   "devDependencies": {
     "ava": "^0.16.0",
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest-node5": "^1.0.0",
     "coveralls": "^2.11.6",
     "eslint": "^3.2.0",
     "eslint-config-exeto-base": "^2.0.0",

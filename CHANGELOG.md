@@ -1,53 +1,43 @@
-
 0.5.0 / 2016-01-27
 ==================
-
- * Add convert relative links to absolute
+- Add convert relative links to absolute
 
 0.4.3 / 2016-01-17
 ==================
-
- * Update dependencies
+- Update dependencies
 
 0.4.2 / 2015-12-16
 ==================
-
- * Add tests
- * Replace by let to const in a loop
- * Remove unused code
+- Add tests
+- Replace by let to const in a loop
+- Remove unused code
 
 0.4.1 / 2015-11-07
 ==================
-
- * Fixed object stream
+- Fixed object stream
 
 0.4.0 / 2015-11-07
 ==================
-
- * Refactoring of function arguments
- * Added readability when not finding element
- * Added the request headers
- * Updated .eslintrc and refactoring code
+- Refactoring of function arguments
+- Added readability when not finding element
+- Added the request headers
+- Updated .eslintrc and refactoring code
 
 0.3.0 / 2015-09-28
 ==================
-
- * Changed the output from innerHTML to outerHTML
- * Added the option `pureHtml`. Now by default `false`
- * Replaced request on got
+- Changed the output from innerHTML to outerHTML
+- Added the option `pureHtml`. Now by default `false`
+- Replaced request on got
 
 0.2.0 / 2015-09-26
 ==================
-
- * Added throwing error when no token Readability
- * Removed duplicate functions multiple choice
+- Added throwing error when no token Readability
+- Removed duplicate functions multiple choice
 
 0.1.3 / 2015-09-01
 ==================
-
- * Fix line wrapping in `<pre>`
+- Fix line wrapping in `<pre>`
 
 0.1.2 / 2015-08-17
 ==================
-
- * Initial commit
+- Initial commit
