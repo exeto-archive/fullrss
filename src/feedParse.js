@@ -13,7 +13,7 @@ export default function feedParse(args) {
     const feedparser = new FeedParser({ addmeta: false });
 
     got
-      .stream(args.feed, {
+      .stream(args.uri, {
         headers: {
           'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) ' +
             'AppleWebKit/537.36 (KHTML, like Gecko) ' +

@@ -61,8 +61,8 @@ export default class FullText {
       decodeEntities: false,
     });
 
-    return $(args.elements).map(function () {
-      const $this = $(this).find(args.dropElements).remove().end();
+    return $(args.target).map(function () {
+      const $this = $(this).find(args.exclude).remove().end();
 
       $this.find('a, img').each(function () {
         const target = $(this);
@@ -93,7 +93,7 @@ export default class FullText {
       let res;
       let text;
 
-      if (!self.args.elements) {
+      if (!self.args.target) {
         return yield FullText.mercuryParser(targetUrl, self.args.mercuryToken);
       }
 
@@ -105,7 +105,7 @@ export default class FullText {
         return yield FullText.mercuryParser(targetUrl, self.args.mercuryToken);
       }
 
-      text = text || `[[ There is no such elements: ${self.args.elements} ]]`;
+      text = text || `[[ There is no such elements: ${self.args.target} ]]`;
 
       if (self.args.pureHtml) {
         return cleanHtml(text);

@@ -35,7 +35,7 @@
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-cli": "^6.18.0",
-    "babel-preset-latest-node5": "^1.0.0",
+    "babel-preset-latest-node4": "^1.0.0",
     "coveralls": "^2.11.6",
     "eslint": "^3.2.0",
     "eslint-config-exeto-base": "^2.0.0",

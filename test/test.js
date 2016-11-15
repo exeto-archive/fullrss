@@ -21,9 +21,9 @@ test.before('setup', async () => {
 
 test('equal feed', async (t) => {
   let feed = await fullrss({
-    feed: `${s.url}/beforeFeed.xml`,
-    elements: '.test2, .test',
-    dropElements: '.delete, h1',
+    uri: `${s.url}/beforeFeed.xml`,
+    target: '.test2, .test',
+    exclude: '.delete, h1',
   });
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
@@ -33,8 +33,8 @@ test('equal feed', async (t) => {
 
 test('missing elements', async (t) => {
   let feed = await fullrss({
-    feed: `${s.url}/beforeFeed.xml`,
-    elements: '.missing',
+    uri: `${s.url}/beforeFeed.xml`,
+    target: '.missing',
   });
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
@@ -45,7 +45,7 @@ test('missing elements', async (t) => {
 test('missing token', async (t) => {
   try {
     await fullrss({
-      feed: `${s.url}/beforeFeed.xml`,
+      uri: `${s.url}/beforeFeed.xml`,
     });
 
     t.fail('Exception was not thrown');
@@ -57,8 +57,8 @@ test('missing token', async (t) => {
 test('error 404', async (t) => {
   try {
     await fullrss({
-      feed: `${s.url}/404`,
-      elements: 'p',
+      uri: `${s.url}/404`,
+      target: 'p',
     });
 
     t.fail('Exception was not thrown');
@@ -70,8 +70,8 @@ test('error 404', async (t) => {
 test('not a feed', async (t) => {
   try {
     await fullrss({
-      feed: `${s.url}/post/1.html`,
-      elements: 'p',
+      uri: `${s.url}/post/1.html`,
+      target: 'p',
     });
 
     t.fail('Exception was not thrown');
@@ -82,9 +82,9 @@ test('not a feed', async (t) => {
 
 test('max items', async (t) => {
   let feed = await fullrss({
-    feed: `${s.url}/beforeFeed.xml`,
-    elements: '.test2, .test',
-    dropElements: '.delete, h1',
+    uri: `${s.url}/beforeFeed.xml`,
+    target: '.test2, .test',
+    exclude: '.delete, h1',
     max: 2,
   });
 
@@ -95,9 +95,9 @@ test('max items', async (t) => {
 
 test('pure html', async (t) => {
   let feed = await fullrss({
-    feed: `${s.url}/beforeFeed.xml`,
-    elements: '.test2, .test',
-    dropElements: '.delete, h1',
+    uri: `${s.url}/beforeFeed.xml`,
+    target: '.test2, .test',
+    exclude: '.delete, h1',
     pureHtml: true,
   });
 
@@ -108,8 +108,8 @@ test('pure html', async (t) => {
 
 test('encoding windws-1251', async (t) => {
   let feed = await fullrss({
-    feed: `${s.url}/beforeFeedWindows1251.xml`,
-    elements: 'p',
+    uri: `${s.url}/beforeFeedWindows1251.xml`,
+    target: 'p',
   });
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
@@ -119,7 +119,7 @@ test('encoding windws-1251', async (t) => {
 
 test('mercury', async (t) => {
   let feed = await fullrss({
-    feed: `${s.url}/beforeFeed.xml`,
+    uri: `${s.url}/beforeFeed.xml`,
     mercuryToken: 'token',
   });
 
@@ -130,8 +130,8 @@ test('mercury', async (t) => {
 
 test('use a mercury absent elements', async (t) => {
   let feed = await fullrss({
-    feed: `${s.url}/beforeFeed.xml`,
-    elements: '.missing',
+    uri: `${s.url}/beforeFeed.xml`,
+    target: '.missing',
     mercuryToken: 'token',
   });
 
