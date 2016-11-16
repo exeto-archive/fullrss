@@ -2,22 +2,21 @@
   "name": "fullrss",
   "version": "0.5.0",
   "description": "Generator full rss feed",
-  "license": "MIT",
+  "main": "lib/index.js",
   "repository": "exeto/fullrss",
-  "main": "index.js",
-  "engines": {
-    "node": ">= 4"
-  },
-  "author": {
-    "name": "Timofey Dergachev",
-    "email": "t@exeto.me",
-    "url": "exeto.me"
-  },
+  "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
+  "license": "MIT",
   "scripts": {
-    "test": "npm run lint && nyc ava",
-    "lint": "eslint .",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "test": "npm run lint && nyc ava --require babel-register",
+    "lint": "eslint src test",
+    "clean": "rm -rf lib",
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm run clean && npm run test && npm run build"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "keywords": [
     "rss",
     "full rss",
@@ -25,21 +24,22 @@
   ],
   "dependencies": {
     "cheerio": "^0.22.0",
-    "co": "^4.6.0",
     "entities": "^1.1.1",
-    "feedparser": "^1.1.4",
-    "got": "^6.1.1",
+    "feedparser": "^1.1.5",
+    "got": "^6.6.3",
     "iconv-lite": "^0.4.13",
     "rss": "^1.2.1",
-    "sanitize-html": "^1.11.3"
+    "sanitize-html": "^1.13.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "coveralls": "^2.11.6",
-    "eslint": "^3.2.0",
-    "eslint-config-exeto-base": "^2.0.0",
-    "eslint-plugin-import": "^2.0.0",
-    "nock": "^9.0.0",
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest-node4": "^1.0.0",
+    "coveralls": "^2.11.15",
+    "eslint": "^3.10.2",
+    "eslint-config-exeto-base": "^3.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "nock": "^9.0.2",
     "nyc": "^9.0.1",
     "pify": "^2.3.0"
   }

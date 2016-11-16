@@ -1,30 +1,16 @@
-logs
-*.log
-npm-debug.log*
-node_modules
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
+# OSX
 .Trashes
-.VolumeIcon.icns
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-*.lnk
-*~
-.directory
-.Trash-*
+.Spotlight-V100
+.DS_Store
+._*
+
+# NODEJS
+node_modules
+npm-debug.log
+
+# COVERAGE
 .nyc_output
 coverage
+
+# OTHER
+lib

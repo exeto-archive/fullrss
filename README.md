@@ -1,5 +1,5 @@
 # fullrss
-[![NPM Version][version-image]][version-url] [![Build Status][buildstat-image]][buildstat-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependency Status][depstat-image]][depstat-url]
+![Node Version][node-image] [![Build Status][buildstat-image]][buildstat-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependency Status][depstat-image]][depstat-url]
 
 Generator full rss feed.
 
@@ -12,17 +12,23 @@ $ npm install --save fullrss
 ## Usage
 
 ```js
-const fullrss = require('fullrss');
+import fullrss from 'fullrss';
 
 fullrss({
-  feed: 'http://domain.com/feed',
-  elements: '.post-img, .post',
-  dropElements: '.counter, .ad',
+  uri: 'http://domain.com/feed',
+  target: '.post-img, .post',
+  exclude: '.counter, .ad',
   max: 5,
   mercuryToken: 'token'
 })
   .then(console.log)
   .catch(console.error);
+```
+
+CommonJS:
+
+```js
+const fullrss = require('fullrss').default;
 ```
 
 ## API
@@ -31,20 +37,20 @@ fullrss({
 
 #### options
 
-##### feed
+##### uri
 
 Type: `string`  
 Default: `false`
 
 Address feed
 
-##### elements
+##### target
 
 Type: `string`  
 
-The choice of the elements of the article. If you do not specify, the receipt of the full text will be made via [Mercury](https://mercury.postlight.com/web-parser/). Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio). If you specify the token and the item is not found, it will use Mercury to get the full text.
+The choice of the elements of the article. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio). If you specify the `mercuryToken` and the elements is not found, it will use [Mercury](https://mercury.postlight.com/web-parser/) to get the full text.
 
-##### dropElements
+##### exclude
 
 Type: `string`  
 
@@ -61,7 +67,7 @@ The maximum number of feed items.
 
 Type: `string`  
 
-Token to obtain the full text via [Mercury](https://mercury.postlight.com/web-parser/).
+Token to obtain the full text via [Mercury](https://mercury.postlight.com/web-parser/). Used if not specified `target`.
 
 ##### pureHtml
 
@@ -72,10 +78,9 @@ Cleaning of unnecessary tags and attributes.
 
 ## License
 
-[MIT](LICENSE.md) © [Timofey Dergachev](http://exeto.me/)
+[MIT](LICENSE.md) © [Timofey Dergachev](https://exeto.me/)
 
-[version-url]: https://www.npmjs.com/package/fullrss
-[version-image]: https://img.shields.io/npm/v/fullrss.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node-v4.x.x-brightgreen.svg?style=flat-square
 [buildstat-url]: https://travis-ci.org/exeto/fullrss?branch=master
 [buildstat-image]: https://img.shields.io/travis/exeto/fullrss/master.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/exeto/fullrss?branch=master
