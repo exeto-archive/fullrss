@@ -1,3 +1,11 @@
+1.0.0 / 2016-11-16
+==================
+- Replace `Readability` on `Mercury`
+- Rename `feed` to `uri`
+- Rename `elements` to `target`
+- Rename `dropElements` to `exclude`
+- Rename `token` to `mercuryToken`
+
 0.5.0 / 2016-01-27
 ==================
 - Add convert relative links to absolute
