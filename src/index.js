@@ -1,7 +1,7 @@
 import feedParse from './feedParse';
 import generateFeed from './generateFeed';
 
-export default function fullrss(args) {
-  return feedParse(args)
-    .then(result => generateFeed(result, args));
+export default async function (args) {
+  const parsedFeed = await feedParse(args);
+  return generateFeed(parsedFeed, args);
 }

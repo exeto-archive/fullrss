@@ -2,44 +2,31 @@ import got from 'got';
 import FeedParser from 'feedparser';
 import iconv from 'iconv-lite';
 
-import getParams from './getParams';
+import { headers, getCharset } from './utils';
 
-export default function feedParse(args) {
+export default function ({ uri, max = 10 }) {
   return new Promise((resolve, reject) => {
-    let count = 0;
-    const max = args.max || 10;
     const result = { articles: [] };
+    const feedParser = new FeedParser({ addmeta: false });
+    let count = 0;
 
-    const feedparser = new FeedParser({ addmeta: false });
-
-    got
-      .stream(args.uri, {
-        headers: {
-          'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) ' +
-            'AppleWebKit/537.36 (KHTML, like Gecko) ' +
-            'Chrome/45.0.2454.99 Safari/537.36',
-          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,' +
-            'image/webp,*/*;q=0.8',
-          'accept-encoding': 'gzip, deflate, sdch',
-          'accept-language': 'ru,en-US;q=0.8,en;q=0.6,it;q=0.4,fr;q=0.2,de;q=0.2',
-        },
-      })
-      .on('error', error => reject(error))
+    got.stream(uri, { headers })
+      .on('error', reject)
       .on('response', function (res) {
-        const charset = getParams(res.headers['content-type']).charset;
+        const charset = getCharset(res.headers['content-type']);
 
         if (charset && !/utf-*8/i.test(charset)) {
           this
             .pipe(iconv.decodeStream(charset))
             .pipe(iconv.encodeStream('utf-8'))
-            .pipe(feedparser);
+            .pipe(feedParser);
         } else {
-          this.pipe(feedparser);
+          this.pipe(feedParser);
         }
       });
 
-    feedparser
-      .on('error', error => reject(error))
+    feedParser
+      .on('error', reject)
       .on('meta', meta => (result.meta = meta))
       .on('readable', function () {
         count += 1;
@@ -50,8 +37,6 @@ export default function feedParse(args) {
           this.emit('end');
         }
       })
-      .on('end', () => {
-        resolve(result);
-      });
+      .on('end', () => resolve(result));
   });
 }

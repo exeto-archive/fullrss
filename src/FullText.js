@@ -1,35 +1,24 @@
 import url from 'url';
-import co from 'co';
 import cheerio from 'cheerio';
 import iconv from 'iconv-lite';
 import got from 'got';
 import entities from 'entities';
 
 import cleanHtml from './cleanHtml';
-import getParams from './getParams';
+import { headers, getCharset } from './utils';
 
 export default class FullText {
   constructor(args) {
-    this.args = args;
-  }
-
-  static getPage(targetUrl) {
-    return got(targetUrl, {
-      encoding: null,
-      headers: {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) ' +
-          'AppleWebKit/537.36 (KHTML, like Gecko) ' +
-          'Chrome/45.0.2454.99 Safari/537.36',
-        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,' +
-          'image/webp,*/*;q=0.8',
-        'accept-encoding': 'gzip, deflate, sdch',
-        'accept-language': 'ru,en-US;q=0.8,en;q=0.6,it;q=0.4,fr;q=0.2,de;q=0.2',
-      },
-    });
+    this.uri = args.uri;
+    this.target = args.target;
+    this.exclude = args.exclude;
+    this.max = args.max;
+    this.mercuryToken = args.mercuryToken;
+    this.pureHtml = args.pureHtml;
   }
 
   static convertCharset(res) {
-    const charset = getParams(res.headers['content-type']).charset;
+    const charset = getCharset(res.headers['content-type']);
 
     if (charset && !/utf-*8/i.test(charset)) {
       const str = iconv.decode(res.body, charset);
@@ -39,79 +28,70 @@ export default class FullText {
     return res;
   }
 
-  static mercuryParser(targetURL, mercuryToken) {
-    return co(function* () {
-      if (!mercuryToken) {
-        return yield Promise.reject(new Error('Missing Mercury token'));
-      }
+  static async mercuryParser(uri, mercuryToken) {
+    if (!mercuryToken) {
+      throw new Error('Missing Mercury token');
+    }
 
-      const res = yield got(`https://mercury.postlight.com/parser?url=${targetURL}`, {
-        headers: {
-          'x-api-key': mercuryToken,
-        },
-      });
-      const body = JSON.parse(res.body);
-      return entities.decodeXML(body.content);
+    const res = await got(`https://mercury.postlight.com/parser?url=${uri}`, {
+      headers: {
+        'x-api-key': mercuryToken,
+      },
     });
+    const body = JSON.parse(res.body);
+    return entities.decodeXML(body.content);
   }
 
-  parse(res, targetUrl) {
-    const args = this.args;
+  parse(res, uri) {
     const $ = cheerio.load(res.body, {
       decodeEntities: false,
     });
 
-    return $(args.target).map(function () {
-      const $this = $(this).find(args.exclude).remove().end();
+    return $(this.target).map((_, element) => {
+      const result = $(element).find(this.exclude).remove().end();
 
-      $this.find('a, img').each(function () {
-        const target = $(this);
+      result.find('a, img').each((_, target) => {
+        target = $(target);
         const tagName = target.get(0).tagName;
-        let attr;
-
-        if (tagName === 'a') {
-          attr = 'href';
-        } else if (tagName === 'img') {
-          attr = 'src';
-        }
-
-        const attrValue = target.attr(attr);
+        const hash = {
+          a: 'href',
+          img: 'src',
+        };
+        const attrName = hash[tagName];
+        const attrValue = target.attr(attrName);
 
         if (attrValue && !url.parse(attrValue).host) {
-          target.attr(attr, url.resolve(targetUrl, attrValue));
+          target.attr(attrName, url.resolve(uri, attrValue));
         }
       });
 
-      return $.html($this);
+      return $.html(result);
     }).get().join('\n');
   }
 
-  get(targetUrl) {
-    const self = this;
+  async get(uri) {
+    if (!this.target) {
+      return await FullText.mercuryParser(uri, this.mercuryToken);
+    }
 
-    return co(function* () {
-      let res;
-      let text;
-
-      if (!self.args.target) {
-        return yield FullText.mercuryParser(targetUrl, self.args.mercuryToken);
-      }
-
-      res = yield FullText.getPage(targetUrl);
-      res = FullText.convertCharset(res);
-      text = self.parse(res, targetUrl);
-
-      if (!text && self.args.mercuryToken) {
-        return yield FullText.mercuryParser(targetUrl, self.args.mercuryToken);
-      }
-
-      text = text || `[[ There is no such elements: ${self.args.target} ]]`;
-
-      if (self.args.pureHtml) {
-        return cleanHtml(text);
-      }
-
-      return text;
+    let res = await got(uri, {
+      headers,
+      encoding: null,
     });
+    res = FullText.convertCharset(res);
+
+    let text = this.parse(res, uri);
+
+    if (!text && this.mercuryToken) {
+      return await FullText.mercuryParser(uri, this.mercuryToken);
+    }
+
+    text = text || `[[ There is no such elements: ${this.target} ]]`;
+
+    if (this.pureHtml) {
+      return cleanHtml(text);
+    }
+
+    return text;
   }
 }
