@@ -7,7 +7,7 @@
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "license": "MIT",
   "scripts": {
-    "test": "npm run lint && nyc ava --require babel-register",
+    "test": "npm run lint && nyc ava",
     "lint": "eslint src test",
     "clean": "rm -rf lib",
     "build": "babel src --out-dir lib",
@@ -42,5 +42,8 @@
     "nock": "^9.0.2",
     "nyc": "^9.0.1",
     "pify": "^2.3.0"
+  },
+  "ava": {
+    "require": ["babel-register"]
   }
 }

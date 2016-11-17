@@ -1,11 +1,17 @@
 import fs from 'fs';
+import path from 'path';
 import test from 'ava';
 import pify from 'pify';
 import nock from 'nock';
 import fullrss from '../src';
 import createServer from './_server';
 
-const readFile = pify(fs.readFile);
+const readFile = async (filePath) => {
+  filePath = path.join(__dirname, filePath);
+  const file = await pify(fs.readFile)(filePath);
+  return file.toString();
+};
+
 let s;
 
 test.before('setup', async () => {
