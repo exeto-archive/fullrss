@@ -32,7 +32,7 @@
     "sanitize-html": "^1.13.0"
   },
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.17.0",
     "babel-cli": "^6.18.0",
     "babel-preset-latest-node4": "^1.0.0",
     "coveralls": "^2.11.15",
