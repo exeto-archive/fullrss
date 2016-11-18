@@ -8,7 +8,7 @@ const pify = require('pify');
 
 module.exports = function () {
   const s = http.createServer((req, res) => {
-    fs.readFile(`fixtures${req.url}`, (err, data) => {
+    fs.readFile(`${__dirname}/fixtures${req.url}`, (err, data) => {
       if (err) {
         res.writeHead(404);
         res.end(JSON.stringify(err));
@@ -16,8 +16,8 @@ module.exports = function () {
       }
 
       if (
-        req.url === '/beforeFeedWindows1251.xml'
-        || req.url === '/post/windows1251.html'
+        req.url === '/beforeFeedWindows1251.xml' ||
+        req.url === '/post/windows1251.html'
       ) {
         res.setHeader('Content-Type', 'text/html; charset=windows-1251');
       }
