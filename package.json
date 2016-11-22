@@ -40,7 +40,7 @@
     "eslint-config-exeto-base": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
     "nock": "^9.0.2",
-    "nyc": "^9.0.1",
+    "nyc": "^10.0.0",
     "pify": "^2.3.0"
   },
   "ava": {
