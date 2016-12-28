@@ -7,7 +7,7 @@
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "license": "MIT",
   "scripts": {
-    "test": "npm run lint && nyc ava",
+    "test": "npm run lint && jest --coverage",
     "lint": "eslint src test",
     "clean": "rm -rf lib",
     "build": "babel src --out-dir lib",
@@ -32,18 +32,17 @@
     "sanitize-html": "^1.13.0"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
     "babel-cli": "^6.18.0",
     "babel-preset-latest-node4": "^1.0.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.10.2",
     "eslint-config-exeto-base": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
+    "jest": "^18.0.0",
     "nock": "^9.0.2",
-    "nyc": "^10.0.0",
     "pify": "^2.3.0"
   },
-  "ava": {
-    "require": ["babel-register"]
+  "jest": {
+    "testEnvironment": "node"
   }
 }
