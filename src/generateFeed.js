@@ -10,23 +10,18 @@ export default async function generateFeed(parsedFeed, args) {
     language: parsedFeed.meta.language,
     pubDate: parsedFeed.meta.date,
   });
-  let count = parsedFeed.articles.length;
 
-  for (const i of parsedFeed.articles) {
-    const body = await fullText.get(i.link);
+  for (const article of parsedFeed.articles) {
+    if (article) {
+      const body = await fullText.get(article.link);
 
-    feed.item({
-      title: i.title,
-      description: body,
-      url: i.link,
-      author: i.author,
-      date: i.date,
-    });
-
-    count -= 1;
-
-    if (count === 0) {
-      break;
+      feed.item({
+        title: article.title,
+        description: body,
+        url: article.link,
+        author: article.author,
+        date: article.date,
+      });
     }
   }
 
