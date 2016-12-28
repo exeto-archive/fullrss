@@ -33,7 +33,7 @@ test('equal feed', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(await readFile('fixtures/afterFeed.xml', 'utf-8')).toBe(feed);
+  expect(feed).toBe(await readFile('fixtures/afterFeed.xml', 'utf-8'));
 });
 
 test('missing elements', async () => {
@@ -44,7 +44,7 @@ test('missing elements', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(await readFile('fixtures/afterFeedMissing.xml', 'utf-8')).toBe(feed);
+  expect(feed).toBe(await readFile('fixtures/afterFeedMissing.xml', 'utf-8'));
 });
 
 test('missing token', async () => {
@@ -89,7 +89,7 @@ test('max items', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(await readFile('fixtures/afterFeedMax.xml', 'utf-8')).toBe(feed);
+  expect(feed).toBe(await readFile('fixtures/afterFeedMax.xml', 'utf-8'));
 });
 
 test('pure html', async () => {
@@ -102,7 +102,7 @@ test('pure html', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(await readFile('fixtures/afterFeedPure.xml', 'utf-8')).toBe(feed);
+  expect(feed).toBe(await readFile('fixtures/afterFeedPure.xml', 'utf-8'));
 });
 
 test('encoding windws-1251', async () => {
@@ -113,7 +113,7 @@ test('encoding windws-1251', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(await readFile('fixtures/afterFeedWindows1251.xml', 'utf-8')).toBe(feed);
+  expect(feed).toBe(await readFile('fixtures/afterFeedWindows1251.xml', 'utf-8'));
 });
 
 test('mercury', async () => {
@@ -124,7 +124,7 @@ test('mercury', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(await readFile('fixtures/afterFeedMercury.xml', 'utf-8')).toBe(feed);
+  expect(feed).toBe(await readFile('fixtures/afterFeedMercury.xml', 'utf-8'));
 });
 
 test('use a mercury absent elements', async () => {
@@ -136,7 +136,7 @@ test('use a mercury absent elements', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(await readFile('fixtures/afterFeedMercury.xml', 'utf-8')).toBe(feed);
+  expect(feed).toBe(await readFile('fixtures/afterFeedMercury.xml', 'utf-8'));
 });
 
 afterAll(async () => {
