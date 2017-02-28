@@ -39,7 +39,7 @@
     "eslint-config-exeto-base": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
     "jest": "^19.0.0",
-    "nock": "^9.0.2",
+    "nock": "^9.0.9",
     "pify": "^2.3.0"
   },
   "jest": {
