@@ -1,4 +1,6 @@
 # fullrss
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/exeto/fullrss.svg)](https://greenkeeper.io/)
 ![Node Version][node-image] [![Build Status][buildstat-image]][buildstat-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependency Status][depstat-image]][depstat-url]
 
 Generator full rss feed.
