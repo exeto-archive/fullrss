@@ -35,7 +35,7 @@
     "babel-cli": "^6.18.0",
     "babel-preset-latest-node4": "^1.0.0",
     "coveralls": "^2.11.15",
-    "eslint": "^3.10.2",
+    "eslint": "^4.1.0",
     "eslint-config-exeto-base": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
     "jest": "^20.0.0",
