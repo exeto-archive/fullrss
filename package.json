@@ -23,7 +23,7 @@
     "full feed"
   ],
   "dependencies": {
-    "cheerio": "^0.22.0",
+    "cheerio": "^1.0.0-rc.2",
     "entities": "^1.1.1",
     "feedparser": "^2.0.0",
     "got": "^7.0.0",
