@@ -1,3 +1,7 @@
+1.0.1 / 2017-11-16
+==================
+- Update dependencies
+
 1.0.0 / 2016-11-16
 ==================
 - Replace `Readability` on `Mercury`

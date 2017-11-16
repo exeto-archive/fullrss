@@ -1,6 +1,6 @@
 {
   "name": "fullrss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generator full rss feed",
   "main": "lib/index.js",
   "repository": "exeto/fullrss",
