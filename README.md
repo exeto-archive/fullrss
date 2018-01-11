@@ -12,7 +12,7 @@ $ npm install --save fullrss
 ## Usage
 
 ```js
-import fullrss from 'fullrss';
+const fullrss = require('fullrss');
 
 fullrss({
   uri: 'http://domain.com/feed',
@@ -21,14 +21,7 @@ fullrss({
   max: 5,
   mercuryToken: 'token'
 })
-  .then(console.log)
-  .catch(console.error);
-```
-
-CommonJS:
-
-```js
-const fullrss = require('fullrss').default;
+  .then(feed => console.log(feed));
 ```
 
 ## API
@@ -80,7 +73,7 @@ Cleaning of unnecessary tags and attributes.
 
 [MIT](LICENSE.md) © [Timofey Dergachev](https://exeto.me/)
 
-[node-image]: https://img.shields.io/badge/node-v4.x.x-brightgreen.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node-v8.x.x-brightgreen.svg?style=flat-square
 [buildstat-url]: https://travis-ci.org/exeto/fullrss?branch=master
 [buildstat-image]: https://img.shields.io/travis/exeto/fullrss/master.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/exeto/fullrss?branch=master

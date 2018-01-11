@@ -1,9 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import pify from 'pify';
-import nock from 'nock';
-import fullrss from '../src';
-import createServer from './_server';
+const fs = require('fs');
+const path = require('path');
+const pify = require('pify');
+const nock = require('nock');
+
+const fullrss = require('../lib');
+const createServer = require('./_server');
 
 const readFile = async (filePath) => {
   filePath = path.join(__dirname, filePath);
