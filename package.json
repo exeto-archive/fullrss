@@ -7,9 +7,9 @@
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "license": "MIT",
   "scripts": {
-    "test": "npm run lint && jest --coverage",
-    "lint": "eslint lib test",
-    "prepublish": "npm run test"
+    "test": "jest --coverage",
+    "prepush": "npm test",
+    "precommit": "lint-staged"
   },
   "files": [
     "lib"
@@ -19,6 +19,16 @@
     "full rss",
     "full feed"
   ],
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "cheerio": "^0.22.0",
     "entities": "^1.1.1",
@@ -29,13 +39,17 @@
     "sanitize-html": "^1.13.0"
   },
   "devDependencies": {
+    "@exeto/eslint-config": "^0.2.0",
     "coveralls": "^3.0.0",
-    "eslint": "^4.1.0",
-    "eslint-config-exeto-base": "^3.0.0",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "husky": "^0.14.3",
     "jest": "^22.0.0",
+    "lint-staged": "^6.0.0",
     "nock": "^9.0.2",
-    "pify": "^2.3.0"
+    "pify": "^2.3.0",
+    "prettier": "^1.10.2"
   },
   "jest": {
     "testEnvironment": "node"
