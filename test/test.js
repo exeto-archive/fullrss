@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const pify = require('pify');
@@ -6,9 +8,10 @@ const nock = require('nock');
 const fullrss = require('../lib');
 const createServer = require('./_server');
 
-const readFile = async (filePath) => {
+const readFile = async filePath => {
   filePath = path.join(__dirname, filePath);
   const file = await pify(fs.readFile)(filePath);
+
   return file.toString();
 };
 
@@ -114,7 +117,9 @@ test('encoding windws-1251', async () => {
 
   feed = feed.replace(/<lastBuildDate>.*/, '');
 
-  expect(feed).toBe(await readFile('fixtures/afterFeedWindows1251.xml', 'utf-8'));
+  expect(feed).toBe(
+    await readFile('fixtures/afterFeedWindows1251.xml', 'utf-8'),
+  );
 });
 
 test('mercury', async () => {

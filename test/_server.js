@@ -6,12 +6,13 @@ const fs = require('fs');
 const http = require('http');
 const pify = require('pify');
 
-module.exports = function () {
+module.exports = function() {
   const s = http.createServer((req, res) => {
     fs.readFile(`${__dirname}/fixtures${req.url}`, (err, data) => {
       if (err) {
         res.writeHead(404);
         res.end(JSON.stringify(err));
+
         return;
       }
 
