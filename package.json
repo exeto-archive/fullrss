@@ -29,7 +29,7 @@
     "got": "^8.0.0",
     "iconv-lite": "^0.4.13",
     "rss": "^1.2.1",
-    "sanitize-html": "^1.13.0"
+    "sanitize-html": "^1.18.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
