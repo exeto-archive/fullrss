@@ -6,12 +6,15 @@
 
 # NODEJS
 node_modules
-npm-debug.log
-package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 yarn.lock
+package-lock.json
 
-# COVERAGE
-coverage
+# IDE
+.idea
+.vscode
 
 # OTHER
-.vscode
+coverage
