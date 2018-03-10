@@ -41,10 +41,8 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.4.0",
     "husky": "^0.14.3",
-    "jest": "^22.0.0",
+    "jest": "^22.4.2",
     "lint-staged": "^6.0.0",
-    "nock": "^9.0.2",
-    "pify": "^2.3.0",
     "prettier": "^1.10.2"
   },
   "jest": {
