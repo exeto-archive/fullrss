@@ -1,3 +1,10 @@
-__fixtures__
-__mocks__
-__tests__
+# OSX
+.Trashes
+.Spotlight-V100
+.DS_Store
+._*
+
+# OTHER
+lib/__fixtures__
+lib/__mocks__
+lib/__tests__
