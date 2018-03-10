@@ -1,3 +1,7 @@
+# 2.0.1 / 2018-03-10
+
+* Fix .npmignore
+
 # 2.0.0 / 2018-03-10
 
 * Output is a [JSON Feed](https://jsonfeed.org/version/1)
