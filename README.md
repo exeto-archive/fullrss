@@ -1,4 +1,5 @@
 # fullrss
+
 ![Node Version][node-image] [![Build Status][buildstat-image]][buildstat-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependency Status][depstat-image]][depstat-url]
 
 Generator full rss feed.
@@ -14,14 +15,15 @@ $ npm install --save fullrss
 ```js
 const fullrss = require('fullrss');
 
-fullrss({
-  uri: 'http://domain.com/feed',
-  target: '.post-img, .post',
-  exclude: '.counter, .ad',
-  max: 5,
-  mercuryToken: 'token'
-})
-  .then(feed => console.log(feed));
+(async () => {
+  const feed = await fullrss({
+    url: 'http://domain.com/feed',
+    token: 'token',
+    max: 5,
+  });
+
+  // ...
+})();
 ```
 
 ## API
@@ -30,44 +32,45 @@ fullrss({
 
 #### options
 
-##### uri
+##### url
 
-Type: `string`  
-Default: `false`
+Type: `string`
 
 Address feed
 
-##### target
+##### token
 
-Type: `string`  
+Type: `string`
 
-The choice of the elements of the article. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio). If you specify the `mercuryToken` and the elements is not found, it will use [Mercury](https://mercury.postlight.com/web-parser/) to get the full text.
-
-##### exclude
-
-Type: `string`  
-
-To exclude the elements. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
+Token to obtain the full text via [Mercury](https://mercury.postlight.com/web-parser/).
 
 ##### max
 
 Type: `number`  
-Default: `10`
+Default: `0`
 
-The maximum number of feed items.
+The maximum number of feed items. If `0` is specified, all items will be processed.
 
-##### mercuryToken
+##### cache
 
-Type: `string`  
+Type: `object`  
+Default: `{ get(key) {}, set(key, value) {} }`
 
-Token to obtain the full text via [Mercury](https://mercury.postlight.com/web-parser/). Used if not specified `target`.
+To avoid unnecessary queries to `mercury`, you can use the cache. Methods can return a promise. The `key` is calculated based on the modified date and id. For example:
 
-##### pureHtml
+```js
+const store = require('...');
 
-Type: `boolean`  
-Default: `false`
+class Cache {
+  get(key) {
+    return store.get(key);
+  }
 
-Cleaning of unnecessary tags and attributes.
+  set(key, value) {
+    store.set(key, value);
+  }
+}
+```
 
 ## License
 
