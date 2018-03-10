@@ -2,32 +2,34 @@
 <rss version="2.0">
   <channel>
     <title>fullrss</title>
-    <link>http://localhost:3000</link>
+    <link>http://domain.com</link>
     <lastBuildDate>13 Dec 2015 11:50:49 +0300</lastBuildDate>
+    <description>Description</description>
     <language>en</language>
+    <atom:link href="http://domain.com/feed" rel="self" type="application/rss+xml" />
     <item>
       <title>Ius et delenit tincidunt expetendis, utamur deterruisset nam te est.</title>
-      <link>http://localhost:3000/post/1.html</link>
+      <link>http://domain.com/post/1.html</link>
       <description>&lt;p&gt;Eum verterem reformidans ne, at ancillae nominavi laboramus has. Sit et apeirian inimicus, vix omnis legere adipisci ex? Te per veri iusto definitiones. Nullam facilis voluptatum ei eos. Ex mea affert officiis. Ubique numquam ei vix, ad eam copiosae voluptatum neglegentur, eu pro lorem augue repudiandae. Te est noster aperiam, pri mazim dolorum suscipiantur et.&lt;/p&gt; ...</description>
       <pubDate>13 Dec 2015 11:50:49 +0300</pubDate>
       <dc:creator>John Smith</dc:creator>
-      <guid>http://localhost:3000/post/1.html</guid>
+      <guid>52384bd2-c094-4d48-98ac-4471b835980a</guid>
     </item>
     <item>
       <title>Ut sit illud putant delectus. Consul semper nam ea, his.</title>
-      <link>http://localhost:3000/post/2.html</link>
+      <link>http://domain.com/post/2.html</link>
       <description>&lt;p&gt;Nec ei dolorum iracundia, vel nullam intellegat eu, te has detraxit referrentur. Nam ei error tincidunt, ius ut quod audire feugiat. Nec velit scriptorem ad, at legimus convenire ius. Ea eum intellegat accommodare?&lt;/p&gt; ...</description>
       <pubDate>13 Dec 2015 09:35:12 +0300</pubDate>
       <dc:creator>John Smith</dc:creator>
-      <guid>http://localhost:3000/post/2.html</guid>
+      <guid>2889119c-a86d-4274-a42d-7558805e5dad</guid>
     </item>
     <item>
       <title>In per sonet quaerendum, ubique tacimates et vel. Consequat cotidieque.</title>
-      <link>http://localhost:3000/post/3.html</link>
+      <link>http://domain.com/post/3.html</link>
       <description>&lt;p&gt;Ei sed solet iisque, iusto timeam quo ne! Vivendo disputationi ius an! Vix viderer menandri dignissim ad, cu pro brute platonem. Duo malorum splendide ad! At veritus detracto pri, his et qualisque scriptorem, qui ne habeo nonumy corpora!&lt;/p&gt; ...</description>
       <pubDate>12 Dec 2015 15:34:20 +0300</pubDate>
       <dc:creator>John Smith</dc:creator>
-      <guid>http://localhost:3000/post/3.html</guid>
+      <guid>ca7bd63e-bba3-4e79-b0ef-b15ee5a853f1</guid>
     </item>
   </channel>
 </rss>

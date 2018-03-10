@@ -1,3 +1,15 @@
 {
-  "extends": "exeto-base"
+  "extends": ["@exeto/eslint-config/node", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.js", "**/__mocks__/**/*.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }

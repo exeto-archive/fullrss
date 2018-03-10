@@ -1,4 +1,5 @@
 # fullrss
+
 ![Node Version][node-image] [![Build Status][buildstat-image]][buildstat-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependency Status][depstat-image]][depstat-url]
 
 Generator full rss feed.
@@ -12,23 +13,17 @@ $ npm install --save fullrss
 ## Usage
 
 ```js
-import fullrss from 'fullrss';
+const fullrss = require('fullrss');
 
-fullrss({
-  uri: 'http://domain.com/feed',
-  target: '.post-img, .post',
-  exclude: '.counter, .ad',
-  max: 5,
-  mercuryToken: 'token'
-})
-  .then(console.log)
-  .catch(console.error);
-```
+(async () => {
+  const feed = await fullrss({
+    url: 'http://domain.com/feed',
+    token: 'token',
+    max: 5,
+  });
 
-CommonJS:
-
-```js
-const fullrss = require('fullrss').default;
+  // ...
+})();
 ```
 
 ## API
@@ -37,50 +32,51 @@ const fullrss = require('fullrss').default;
 
 #### options
 
-##### uri
+##### url
 
-Type: `string`  
-Default: `false`
+Type: `string`
 
 Address feed
 
-##### target
+##### token
 
-Type: `string`  
+Type: `string`
 
-The choice of the elements of the article. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio). If you specify the `mercuryToken` and the elements is not found, it will use [Mercury](https://mercury.postlight.com/web-parser/) to get the full text.
-
-##### exclude
-
-Type: `string`  
-
-To exclude the elements. Parsing rules, see [cheerio](https://github.com/cheeriojs/cheerio).
+Token to obtain the full text via [Mercury](https://mercury.postlight.com/web-parser/).
 
 ##### max
 
 Type: `number`  
-Default: `10`
+Default: `0`
 
-The maximum number of feed items.
+The maximum number of feed items. If `0` is specified, all items will be processed.
 
-##### mercuryToken
+##### cache
 
-Type: `string`  
+Type: `object`  
+Default: `{ get(key) {}, set(key, value) {} }`
 
-Token to obtain the full text via [Mercury](https://mercury.postlight.com/web-parser/). Used if not specified `target`.
+To avoid unnecessary queries to `mercury`, you can use the cache. Methods can return a promise. The `key` is calculated based on the modified date and id. For example:
 
-##### pureHtml
+```js
+const store = require('...');
 
-Type: `boolean`  
-Default: `false`
+class Cache {
+  get(key) {
+    return store.get(key);
+  }
 
-Cleaning of unnecessary tags and attributes.
+  set(key, value) {
+    store.set(key, value);
+  }
+}
+```
 
 ## License
 
 [MIT](LICENSE.md) © [Timofey Dergachev](https://exeto.me/)
 
-[node-image]: https://img.shields.io/badge/node-v4.x.x-brightgreen.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node-v8.x.x-brightgreen.svg?style=flat-square
 [buildstat-url]: https://travis-ci.org/exeto/fullrss?branch=master
 [buildstat-image]: https://img.shields.io/travis/exeto/fullrss/master.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/exeto/fullrss?branch=master
