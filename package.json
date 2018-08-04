@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "feedparser": "^2.2.9",
-    "got": "^8.2.0",
+    "got": "^9.0.0",
     "he": "^1.1.1"
   },
   "devDependencies": {
