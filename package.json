@@ -7,9 +7,7 @@
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage",
-    "prepush": "npm test",
-    "precommit": "lint-staged"
+    "test": "jest --coverage"
   },
   "files": [
     "lib"
@@ -19,16 +17,6 @@
     "full rss",
     "full feed"
   ],
-  "lint-staged": {
-    "**/*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "**/*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "dependencies": {
     "feedparser": "^2.2.9",
     "got": "^9.0.0",
@@ -44,8 +32,5 @@
     "jest": "^22.4.2",
     "lint-staged": "^7.0.1",
     "prettier": "^1.13.2"
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }
