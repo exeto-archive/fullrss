@@ -1,9 +1,9 @@
 {
   "name": "fullrss",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Generator full rss feed",
   "main": "lib/index.js",
-  "repository": "exeto/fullrss",
+  "repository": "exeto-archive/fullrss",
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "license": "MIT",
   "scripts": {

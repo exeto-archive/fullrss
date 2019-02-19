@@ -1,12 +1,16 @@
-# 2.0.2 / 2018-03-10
+# 2.1.0 / 2019-02-19
+
+* Declare the package is deprecated
+
+# 2.0.2 / 2018-10-03
 
 * Fix .npmignore
 
-# 2.0.1 / 2018-03-10
+# 2.0.1 / 2018-10-03
 
 * Fix .npmignore
 
-# 2.0.0 / 2018-03-10
+# 2.0.0 / 2018-10-03
 
 * Output is a [JSON Feed](https://jsonfeed.org/version/1)
 * Remove support Node.js below 8

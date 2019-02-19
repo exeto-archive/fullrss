@@ -2,7 +2,9 @@
 
 ![Node Version][node-image] [![Build Status][buildstat-image]][buildstat-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependency Status][depstat-image]][depstat-url]
 
-Generator full rss feed.
+> Generator full rss feed.
+
+**THIS PACKAGE IS NO LONGER MAINTAINED**
 
 ## Install
 
